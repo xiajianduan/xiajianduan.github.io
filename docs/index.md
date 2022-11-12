@@ -12,23 +12,31 @@ features: # 可选的
   - title: 编程
     desc: 网络编程
     link: /web/ # 可选
-    imgUrl: /img/编程.jpg # 可选
+    imgUrl: /img/program.jpg # 可选
   - title: 书籍
     desc: 图书管理
     link: /ui/
-    imgUrl: /img/书籍.jpg
+    imgUrl: /img/book.jpg
   - title: 历史
     desc: 历史学习
     link: /history/
-    imgUrl: /img/历史.jpg
+    imgUrl: /img/history.jpg
   - title: 科技
     desc: 科学技术
     link: /technology/
-    imgUrl: /img/科技.jpg
+    imgUrl: /img/tech.jpg
+  - title: 绘画
+    desc: 美术绘画
+    link: /technology/
+    imgUrl: /img/painting.jpg
+  - title: 音乐
+    desc: 自然音律
+    link: /technology/
+    imgUrl: /img/music.jpg
   - title: 其他
     desc: 其他扩展
     link: /technology/
-    imgUrl: /img/其他.jpg
+    imgUrl: /img/other.jpg
 # 文章列表显示方式: detailed 默认，显示详细版文章列表（包括作者、分类、标签、摘要、分页等）| simple => 显示简约版文章列表（仅标题和日期）| none 不显示文章列表
 # postList: detailed
 # simplePostListLength: 10 # 简约版文章列表显示的文章数量，默认10。（仅在postList设置为simple时生效）

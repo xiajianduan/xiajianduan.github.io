@@ -15,6 +15,7 @@
       .hero
         text-align center
         margin-top 3rem
+        font-family: cursive
         img
           max-width 100%
           max-height 240px
@@ -50,20 +51,23 @@
         flex-wrap wrap
         align-items flex-start
         align-content stretch
-        justify-content space-between
+        justify-content flex-start
       .feature
-        flex-grow 1
-        flex-basis 30%
+        padding: 5px
+        // flex-basis 30%
         max-width 30%
         text-align center
         a
           // color lighten($bannerTextColor,10%)
           color inherit
           .feature-img
-            width 20rem
-            height 10rem
+            width 12rem
+            height 8rem
             animation heart 1.2s ease-in-out 0s infinite alternate
             animation-play-state paused
+            padding: 4px
+            background: rgb(153, 153, 153)
+            box-shadow: 0px 0px 2px rgb(0 0 0 / 50%)
           p
             opacity 0.8
             padding 0 0.8rem
