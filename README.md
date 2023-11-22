@@ -11,7 +11,7 @@
 
 
  [文档](https://doc.xiajianduan.com)  |
- [效果](https://lierpang.xyz)  |
+ [效果](https://xiajianduan.github.io)  |
  [镜像](https://gitee.com/xiajianduan/xiajianduan.github.io)
 
 
