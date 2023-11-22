@@ -59,6 +59,13 @@ module.exports = (options, ctx) => {
     deletePage(sourceDir, 'archivesPage')
   }
 
+  //插件页
+  if (themeConfig.bagua !== false) {
+    createPage(sourceDir, 'yijingPage')
+  } else {
+    deletePage(sourceDir, 'yijingPage')
+  }
+
   // resolve algolia
   const isAlgoliaSearch = (
     themeConfig.algolia

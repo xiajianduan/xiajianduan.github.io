@@ -1,0 +1,65 @@
+body 
+	background #eee
+
+@keyframes x {
+  from {
+    transform rotate(0deg)
+  }
+  to {
+    transform rotate(360deg)
+  }
+}
+#taichi
+	width 10rem
+	height 10rem
+	border-radius 50%
+	position absolute
+	overflow hidden
+	box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+.tu-taichi
+	&:nth-child(even) 
+		background white
+	&:nth-child(odd) 
+		background black
+	&:nth-child(1) 
+		position absolute
+		width 50%
+		height 100%
+		left 50%
+	&:nth-child(2) 
+		position absolute
+		width 50%
+		height 100%
+		left 0
+	&:nth-child(3) 
+		position absolute
+		width 5rem
+		height 5rem
+		left 50%
+		bottom 0
+		margin-left -2.5rem
+		border-radius 50%
+	&:nth-child(4) 
+		position absolute
+		width 5rem
+		height 5rem
+		left 50%
+		bottom 50%
+		margin-left -2.5rem
+		border-radius 50%
+	&:nth-child(5) 
+		position absolute
+		width 1.25rem
+		height 1.25rem
+		left 50%
+		top 18.75%
+		margin-left -0.625rem
+		border-radius 50%
+	&:nth-child(6) 
+		position absolute
+		width 1.25rem
+		height 1.25rem
+		left 50%
+		top 68.75%
+		margin-left -0.625rem
+		border-radius 50%

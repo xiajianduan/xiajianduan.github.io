@@ -44,6 +44,13 @@ title: 归档
 permalink: /archives/
 article: false
 ---`
+  } else if (page.indexOf('yijing') > -1) {
+    content = `---
+: true
+title: 归档
+permalink: /yijing/
+article: false
+---`
   }
 
   if (content) {

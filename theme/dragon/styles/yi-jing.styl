@@ -1,0 +1,308 @@
+body 
+	background #eee
+	overflow hidden
+	overscroll-behavior-y contain
+
+@keyframes x {
+  from {
+    transform rotate(0deg)
+  }
+  to {
+    transform rotate(360deg)
+  }
+}
+#bagua-outer,
+#bagua-inner 
+	width 20rem
+	height 20rem
+	border-radius 50%
+	position absolute
+	overflow hidden
+	box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+	display flex
+	justify-content center
+	align-items center
+#bagua-inner 
+	animation x 20s infinite linear
+	background-color peru
+#bagua-outer 
+	width 28.75rem
+	height 28.75rem
+	border-radius 0
+	animation none
+	background-color chocolate
+.tu-self 
+	background-color red
+.tu-zong 
+	margin-top 1.875rem
+	background-color green
+.tu-mix 
+	margin-top 3.75rem
+	background-color purple
+.tu-hg 
+	margin-top 5.625rem
+	background-color blue
+.tu-inner 
+	&:nth-child(1) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(360deg)
+		top 0%
+		left 43.75%
+	&:nth-child(3) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(270deg)
+		top 43.75%
+		left 0%
+	&:nth-child(5) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(180deg)
+		top 87.5%
+		left 43.75%
+	&:nth-child(7) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(90deg)
+		top 43.75%
+		left 87.5%
+	&:nth-child(2) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(315deg)
+		top 12.81407832%
+		left 12.81407832%
+	&:nth-child(4) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(225deg)
+		top 74.68592168%
+		left 12.81407832%
+	&:nth-child(6) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(135deg)
+		top 74.68592168%
+		left 74.68592168%
+	&:nth-child(8) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(45deg)
+		top 12.81407832%
+		left 74.68592168%
+.tu-outer 
+	&:nth-child(1) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(360deg)
+		top 1.5625%
+		left 45.3125%
+	&:nth-child(3) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(270deg)
+		top 45.3125%
+		left 1.5625%
+	&:nth-child(5) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(180deg)
+		top 89.0625%
+		left 45.3125%
+	&:nth-child(7) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(90deg)
+		top 45.3125%
+		left 89.0625%
+	&:nth-child(2) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(315deg)
+		top 14.37657832%
+		left 14.37657832%
+	&:nth-child(4) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(225deg)
+		top 76.24842168%
+		left 14.37657832%
+	&:nth-child(6) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(135deg)
+		top 76.24842168%
+		left 76.24842168%
+	&:nth-child(8) 
+		position absolute
+		font-weight bold
+		height 2.5rem
+		width 2.5rem
+		transform rotate(45deg)
+		top 14.37657832%
+		left 76.24842168%
+.tu-title 
+	&:nth-child(1) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top -3.125%
+		left 37.5%
+	&:nth-child(3) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 40.625%
+		left -6.25%
+	&:nth-child(5) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 84.375%
+		left 37.5%
+	&:nth-child(7) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 40.625%
+		left 81.25%
+	&:nth-child(2) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 9.68907832%
+		left 6.56407832%
+	&:nth-child(4) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 71.56092168%
+		left 6.56407832%
+	&:nth-child(6) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 71.56092168%
+		left 68.43592168%
+	&:nth-child(8) 
+		color white
+		position absolute
+		font-weight bold
+		height 1.875rem
+		width 9.375rem
+		font-size 0.625rem
+		opacity 0.7
+		z-index 1
+		cursor pointer
+		box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+		top 9.68907832%
+		left 68.43592168%
+#bagua-wrapper 
+	color black
+	font-size 2.5rem
+	display flex
+	justify-content center
+	align-items center
+	flex-direction column
+	background-size cover
+.bagua-title 
+	position absolute
+	display none
+	width 37.5rem
+	height 37.5rem
+#bagua-detail 
+	position absolute
+	background black
+	z-index 1
+	display none
+	opacity 0.85
+	white-space pre-wrap
+	width 28.125rem
+	height 28.125rem
+	font-size 0.9375rem
+	color white
+	user-select text
+	pointer-events none
+	box-shadow 0px 0px 0.10667rem 0.064rem rgba(0, 0, 0, 0.75)
+.swiper 
+	height max-content
