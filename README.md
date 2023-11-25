@@ -1,4 +1,4 @@
-<p align="center"><a href="https://xiajianduan.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/xiajianduan/image_store/blog/20200409124835.png" alt="logo"></a></p>
+<p align="center"><a href="https://xiajianduan.com/" target="_blank" rel="noopener noreferrer"><img width="180" src="https://jsd.cdn.zzko.cn/gh/xiajianduan/image_store/blog/20200409124835.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/xiajianduan.github.io"><img alt="npm" src="https://img.shields.io/npm/v/xiajianduan.github.io"></a>

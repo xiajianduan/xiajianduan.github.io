@@ -10,13 +10,13 @@
     <div class="catalogue-wrapper" v-if="isStructuring">
       <div class="catalogue-title">目录</div>
       <div class="catalogue-content">
-        <template v-for="(item, index) in getCatalogueList()">
+        <template v-for="(item, index) in getDocs()">
           <dl v-if="type(item) === 'array'" :key="index" class="inline">
             <dt>
-              <router-link :to="item[2]"
-                >{{ `${index + 1}. ${item[1]}` }}
-                <span class="title-tag" v-if="item[3]">
-                  {{ item[3] }}
+              <router-link :to="item.link"
+                >{{ `${index + 1}. ${item.title}` }}
+                <span class="title-tag" v-if="item.tag">
+                  {{ item.tag }}
                 </span>
               </router-link>
             </dt>
@@ -29,12 +29,12 @@
             </dt>
             <dd>
               <!-- 二级目录 -->
-              <template v-for="(c, i) in item.children">
-                <template v-if="type(c) === 'array'">
-                  <router-link :to="c[2]" :key="i"
-                    >{{ `${index + 1}-${i + 1}. ${c[1]}` }}
-                    <span class="title-tag" v-if="c[3]">
-                      {{ c[3] }}
+              <template v-for="(c, i) in item.keys">
+                <template v-if="type(item[c]) === 'object'">
+                  <router-link :to="item[c].link" :key="i"
+                    >{{ `${index + 1}-${i + 1}. ${item[c].title}` }}
+                    <span class="title-tag" v-if="item[c].tag">
+                      {{ item[c].tag }}
                     </span>
                   </router-link>
                 </template>
@@ -96,6 +96,13 @@ export default {
       } else {
         console.error('请在front matter中设置pageComponent和pageComponent.data数据')
       }
+    },
+    getDocs() {
+      const { sidebar } = this.$site.themeConfig
+      const { data } = this.$frontmatter.pageComponent
+      const key = data.path || data.key
+      let result = eval(`sidebar.docs.${key}`);
+      return (result.keys || []).map(k => result[k]);
     },
     getCatalogueList() {
       const { sidebar } = this.$site.themeConfig

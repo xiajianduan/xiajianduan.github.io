@@ -86,7 +86,7 @@ ${extendFrontmatterStr}---`;
       }
 
       if (file.filePath.indexOf('_posts') > -1 && !matterData.hasOwnProperty('sidebar')) { // auto侧边栏，_posts文件夹特有
-        matterData.sidebar = "auto";
+        matterData.sidebars = "auto";
         hasChange = true;
       }
 

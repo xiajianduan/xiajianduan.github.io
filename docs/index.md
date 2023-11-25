@@ -9,30 +9,14 @@ tagline: 你说奇迹会降临吗
 # bannerBg: auto # auto => 网格纹背景(有bodyBgImg时无背景)，默认 | none => 无 | '大图地址' | background: 自定义背景样式       提示：如发现文本颜色不适应你的背景时可以到palette.styl修改$bannerTextColor变量
 
 features: # 可选的
-  - title: 编程
-    desc: 网络编程
-    link: /web/ # 可选
-    imgUrl: /img/program.jpg # 可选
-  - title: 书籍
-    desc: 图书管理
-    link: /ui/
-    imgUrl: /img/book.jpg
-  - title: 历史
-    desc: 历史学习
-    link: /history/
-    imgUrl: /img/history.jpg
+  - title: 前端
+    desc: 前端技术
+    link: /code/ # 可选
+    imgUrl: /img/code.jpg # 可选
   - title: 科技
     desc: 科学技术
     link: /technology/
     imgUrl: /img/tech.jpg
-  - title: 绘画
-    desc: 美术绘画
-    link: /technology/
-    imgUrl: /img/painting.jpg
-  - title: 音乐
-    desc: 自然音律
-    link: /technology/
-    imgUrl: /img/music.jpg
   - title: 其他
     desc: 其他扩展
     link: /technology/

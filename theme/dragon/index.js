@@ -1,6 +1,7 @@
 const path = require('path')
 const setFrontmatter = require('./node_utils/setFrontmatter')
 const getSidebarData = require('./node_utils/getSidebarData')
+const side = require('./node_utils/sidebar')
 const { createPage, deletePage } = require('./node_utils/handlePage')
 const chalk = require('chalk') // 命令行打印美化
 const yaml = require('js-yaml') // yaml转js
@@ -27,8 +28,8 @@ module.exports = (options, ctx) => {
   // 自动生成结构化侧边栏
   const sidebar = themeConfig.sidebar
   if (sidebar === 'structuring' || sidebar && sidebar.mode === 'structuring') {
-    const collapsable = themeConfig.sidebar.collapsable === false ? false : true
-    const sidebarData = getSidebarData(sourceDir, collapsable)
+    const collapsable = themeConfig.sidebar.collapsable !== false
+    const sidebarData = side.create(sourceDir, collapsable)
     if (sidebarData) {
       themeConfig.sidebar = sidebarData
       log(chalk.blue('tip ') + chalk.green('add sidebar data. 成功生成侧边栏数据。'))
