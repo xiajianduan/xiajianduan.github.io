@@ -49,10 +49,7 @@ export default {
 
   methods: {
     refreshIndex () {
-      const index = resolveOpenGroupIndex(
-        this.$route,
-        this.items
-      )
+      const index = getCurrentIndex(this.$route, this.items)
       if (index > -1) {
         this.openGroupIndex = index
       }
@@ -66,6 +63,14 @@ export default {
       return isActive(this.$route, page.regularPath)
     }
   }
+}
+function getCurrentIndex(route, items) {
+  for (let i = 0; i < items.length; i++) {
+    const keys = items[i].keys || [];
+    const item = keys.map(k=>items[i][k]).find(i => isActive(route, i.link))
+    if(item) { return item.order }
+  }
+  return -1
 }
 
 function resolveOpenGroupIndex (route, items) {

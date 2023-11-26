@@ -2,14 +2,14 @@
   <div class="articleInfo-wrap">
     <div class="articleInfo">
       <!-- 面包屑 -->
-      <ul class="breadcrumbs" v-if="classify1 && classify1 !== '_posts'">
+      <ul class="breadcrumbs" v-if="data.classify1 && data.classify1 !== '_posts'">
         <li>
           <router-link to="/" class="iconfont icon-home" title="首页" />
         </li>
 
-        <li v-for="item in classifyList" :key="item">
+        <li v-for="item in data.classifyList" :key="item">
           <!-- 跳目录页 -->
-          <router-link v-if="cataloguePermalink" :to="getLink(item)">{{
+          <router-link v-if="data.cataloguePermalink" :to="getLink(item)">{{
             item
           }}</router-link>
           <!-- 跳分类页 -->
@@ -26,34 +26,34 @@
 
       <!-- 作者&日期 -->
       <div class="info">
-        <div class="author iconfont icon-touxiang" title="作者" v-if="author">
+        <div class="author iconfont icon-touxiang" title="作者" v-if="data.author">
           <a
-            :href="author.href || author.link"
+            :href="data.author.href || data.author.link"
             v-if="
-              author.href || (author.link && typeof author.link === 'string')
+              data.author.href || (data.author.link && typeof data.author.link === 'string')
             "
             target="_blank"
             class="beLink"
             title="作者"
-            >{{ author.name }}</a
+            >{{ data.author.name }}</a
           >
-          <a v-else href="javascript:;">{{ author.name || author }}</a>
+          <a v-else href="javascript:;">{{ data.author.name || data.author }}</a>
         </div>
-        <div class="date iconfont icon-riqi" title="创建时间" v-if="date">
-          <a href="javascript:;">{{ date }}</a>
+        <div class="date iconfont icon-riqi" title="创建时间" v-if="data.date">
+          <a href="javascript:;">{{ data.date }}</a>
         </div>
         <div
           class="date iconfont icon-wenjian"
           title="分类"
           v-if="
             $themeConfig.category !== false &&
-            !(classify1 && classify1 !== '_posts') &&
+            !(data.classify1 && data.classify1 !== '_posts') &&
             categories
           "
         >
           <router-link
             :to="`/categories/?category=${encodeURIComponent(item)}`"
-            v-for="(item, index) in categories"
+            v-for="(item, index) in data.categories"
             :key="index"
             >{{ item + ' ' }}</router-link
           >
@@ -64,24 +64,25 @@
 </template>
 
 <script>
+import { getNavigator } from '../util'
 export default {
   data() {
-    return {
-      date: '',
-      classify1: '',
-      classifyList: [],
-      cataloguePermalink: '',
-      author: null,
-      categories: []
-    }
+    return {data:{}}
+    // {
+    //   date: '',
+    //   classify1: '',
+    //   classifyList: [],
+    //   cataloguePermalink: '',
+    //   author: null,
+    //   categories: []
+    // }
   },
   created() {
-    this.getPageInfo()
+    this.data = getNavigator(this.$page, this.$themeConfig, this.$frontmatter)
   },
   watch: {
     '$route.path'() {
-      this.classifyList = []
-      this.getPageInfo()
+      this.data = getNavigator(this.$page, this.$themeConfig, this.$frontmatter)
     }
   },
   methods: {
@@ -124,7 +125,7 @@ export default {
     },
 
     getLink(item) {
-      const { cataloguePermalink } = this
+      const { cataloguePermalink } = this.data
       if (item === cataloguePermalink) {
         return cataloguePermalink
       }

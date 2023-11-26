@@ -117,13 +117,13 @@ function resolvePath(relative, base, append) {
 
 /**
  * @param { Page } page
- * @param { string } regularPath
  * @param { SiteData } site
  * @param { string } localePath
  * @returns { SidebarGroup }
  */
-export function resolveSidebarItems(page, regularPath, site, localePath) {
-  const { pages, themeConfig } = site
+export function resolveSidebarItems(page, site, localePath) {
+  const { themeConfig } = site
+  const { relativePath } = page
 
   const localeConfig = localePath && themeConfig.locales
     ? themeConfig.locales[localePath] || themeConfig
@@ -138,15 +138,69 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
   if (!sidebarConfig) {
     return []
   } else {
-    const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig)
+    const config = getData(sidebarConfig, relativePath)
     if (config === 'auto') {
       return resolveHeaders(page)
     }
-    return config
-      ? config.map(item => resolveItem(item, pages, base))
-      : []
+    return config && config.keys && config.keys.map(key => {
+      const item = config[key]
+      item.type = "group"
+      item.children = item.keys.map(k => {
+        const subItem = item[k];
+        subItem.type = "page"
+        return subItem;
+      })
+      return item;
+    })
   }
 }
+function getData(sidebar, relativePath) {
+  // 分类采用解析文件夹地址名称的方式 (即使关闭分类功能也可以正确跳转目录页)
+  const paths = relativePath.split('/')
+  let result = sidebar.docs;
+  for (let i = 0; i < (paths.length > 4? 4 : paths); i++) {
+    const nameArr = paths[i].split('.')
+    if (nameArr === 1) {
+      result = result(nameArr[0])
+    } else {
+      result = result[nameArr[1]]
+    }
+  }
+  return result;
+}
+
+export function getNavigator(pageInfo, config, matter) {
+  const result = {classifyList:[]}
+  const { relativePath } = pageInfo
+  const { sidebar } = config
+
+  // 分类采用解析文件夹地址名称的方式 (即使关闭分类功能也可以正确跳转目录页)
+  const paths = relativePath.split('/')
+  for (let i = 3; i < paths.length - 1; i++) {
+    const nameArr = paths[i].split('.')
+    if (nameArr === 1) {
+      result.classifyList.push(nameArr[0])
+    } else {
+      const firstDotIndex = paths[i].indexOf('.');
+      result.classifyList.push(paths[i].substring(firstDotIndex + 1) || '')
+    }
+  }
+  result.classify1 = result.classifyList[0]
+  // 目录页永久链接、作者、创建时间
+  const cataloguePermalink = sidebar && sidebar.catalogue ? sidebar.catalogue[result.classify1] : ''
+  const author = matter.author || config.author
+  let date = (pageInfo.frontmatter.date || '').split(' ')[0]
+
+  // 获取页面frontmatter的分类（碎片化文章使用）
+  const { categories } = matter
+
+  result.date = date
+  result.cataloguePermalink = cataloguePermalink
+  result.author = author
+  result.categories = categories
+  return result
+}
+
 
 /**
  * @param { Page } page

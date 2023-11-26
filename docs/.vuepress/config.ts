@@ -30,28 +30,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     // 导航配置
     nav: [
       { text: '首页', link: '/' },
-      // {
-      //   text: '前端',
-      //   link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
-      //   items: [
-      //     // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
-      //     {
-      //       text: '前端文章',
-      //       items: [
-      //         { text: 'JavaScript', link: '/pages/8143cc480faf9a11/' },
-      //       ],
-      //     },
-      //     {
-      //       text: '学习笔记',
-      //       items: [
-      //         {
-      //           text: '《Git》',
-      //           link: '/note/git/',
-      //         }
-      //       ],
-      //     },
-      //   ],
-      // },
       { text: '关于', link: '/about/' },
       // {
       //   text: '索引',
@@ -63,7 +41,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       //   ],
       // },
     ],
-    sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.webp', // 导航栏logo
     // repo: 'xiajianduan/xiajianduan.github.io', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
@@ -106,8 +83,11 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     defaultMode: 'dark',
 
     // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | <自定义>    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-    sidebar: 'structuring',
-
+    sidebar: {
+      collapsable: true,
+      mode:'structuring',
+      depth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
+    },
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
       name: 'xiajianduan', // 必需

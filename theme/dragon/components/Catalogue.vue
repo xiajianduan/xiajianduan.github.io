@@ -102,7 +102,10 @@ export default {
       const { data } = this.$frontmatter.pageComponent
       const key = data.path || data.key
       let result = eval(`sidebar.docs.${key}`);
-      return (result.keys || []).map(k => result[k]);
+      if(result && result.keys) {
+        return (result.keys).map(k => result[k]);
+      }
+      return null
     },
     getCatalogueList() {
       const { sidebar } = this.$site.themeConfig
